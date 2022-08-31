@@ -1,7 +1,5 @@
 import styles from "../styles/PizzaList.module.css";
 import PizzaCard from "./PizzaCard"
-import Link from "next/link";
-import Image from "next/image";
 
 const PizzaList = ({pizzaList}) => {
    console.log(pizzaList);
@@ -16,15 +14,8 @@ const PizzaList = ({pizzaList}) => {
       </p>
       {/* console.log({pizzalist}); */}
       <div className={styles.wrapper}>
-      {pizzaList.map((pizza) => (
-      <>
-           <Link href={`/product/${pizza._id}`} ><a> <Image src={`${pizza.img}`} alt="" width="500" height="500" /> </a></Link>
-    
-    <h1 className={styles.title}>{pizza.title}</h1>
-    <span className={styles.price}>₹{pizza.prices[2]}</span>
-    <p className={styles.desc}>
-     {pizza.desc}
-    </p></>
+      {pizzaList.map(pizza => (
+          <PizzaCard key={pizza._id} pizza={pizza} />
         ))}
           
       </div>
