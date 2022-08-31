@@ -5,7 +5,7 @@ import PizzaList from "../components/PizzaList";
 import styles from "../styles/Home.module.css";
 import axios from "axios";
 
-export default function Home({pizzalist}) {
+export default function Home({pizzaList}) {
   return (<> <div className={styles.container}>
       <Head>
         <title>Pizza Restaurant</title>
@@ -13,7 +13,7 @@ export default function Home({pizzalist}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Featured/>
-      <PizzaList pizzalist={pizzalist} />
+      <PizzaList pizzaList={pizzaList} />
     </div></>
    
   );
@@ -22,10 +22,11 @@ export default function Home({pizzalist}) {
 export const getServerSideProps = async()=>{
   const url=process.env.API_URL
   const res=await axios.get(`${url}/api/products`)
+  console.log(res);
   
  return{
  props:{
-  pizzalist:res.data
+  pizzaList:res.data
  }
 
  }
