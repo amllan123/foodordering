@@ -2,7 +2,8 @@ import styles from "../styles/PizzaList.module.css";
 import PizzaCard from "./PizzaCard"
 
 const PizzaList = ({pizzaList}) => {
-   console.log(pizzaList);
+   console.log(pizzaList.length);
+   const len=pizzaList.length
   return (
     <div className={styles.container}>
     
@@ -14,10 +15,10 @@ const PizzaList = ({pizzaList}) => {
       </p>
       {/* console.log({pizzalist}); */}
       <div className={styles.wrapper}>
-      {pizzaList.map(pizza => (
+      {pizzaList.map((pizza,key) => (
           <PizzaCard key={pizza._id} pizza={pizza} />
         ))}
-          
+    
       </div>
     </div>
   );
