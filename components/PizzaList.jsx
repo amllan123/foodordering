@@ -4,6 +4,15 @@ import PizzaCard from "./PizzaCard"
 const PizzaList = ({pizzaList}) => {
    console.log(pizzaList.length);
    const len=pizzaList.length
+   
+   function renderProduct(){
+    return (
+   pizzaList.forEach((pizza) => {
+     <PizzaCard key={pizza._id} pizza={pizza} />
+    })
+    )
+   }
+   
   return (
     <div className={styles.container}>
     
@@ -18,7 +27,10 @@ const PizzaList = ({pizzaList}) => {
       {pizzaList.map((pizza,key) => (
           <PizzaCard key={pizza._id} pizza={pizza} />
         ))}
-    
+
+
+       
+   
       </div>
     </div>
   );

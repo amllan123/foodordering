@@ -38,11 +38,11 @@ const Add = ({ setClose }) => {
 
       const { url } = uploadRes.data;
       const newProduct = {
-        title,
+        title, img:url,
         desc,
         prices,
         extraOptions,
-        img: url,
+       
       };
 
       await axios.post(`${apiurl}/api/products`, newProduct);
