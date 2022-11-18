@@ -107,7 +107,9 @@ try {
     </tr>
 </tbody>
 {orderlist.map((order)=>(
-<tbody key={order._id}>
+ order.status <= 3 ?
+<>
+ <tbody key={order._id}>
 
 
     <tr className={styles.trTitle}>
@@ -117,13 +119,13 @@ try {
         <td>{order.method===0?<span>Cash</span> : <span>Paid</span>}</td>
         <td>{status[order.status]}</td>
         <td>
-            <button className={styles.button}
-             onClick={() =>handleStatus(order._id)}      
-        
-            >Next Stage</button>
+        {order.status <= 2 ? <button className={styles.button}
+             onClick={() =>handleStatus(order._id)}>Next Stage</button>:
+              <button className={styles.button}
+             onClick={() =>handleStatus(order._id)}>Delete</button>}
         </td>
     </tr>
-</tbody>
+</tbody></>:<></>
 
 ))}
 
